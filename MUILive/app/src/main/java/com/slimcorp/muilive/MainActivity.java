@@ -147,6 +147,30 @@ public class MainActivity extends AppCompatActivity {
         setupHeaderAndBottomActions();
 
         updateUiFromConfig();
+        handleTabIntent(getIntent());
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        handleTabIntent(intent);
+    }
+
+    private void handleTabIntent(Intent intent) {
+        if (intent != null && intent.hasExtra("tab") && tabLayout != null) {
+            int tabIdx = intent.getIntExtra("tab", 0);
+            if (tabIdx >= 0 && tabIdx < tabLayout.getTabCount()) {
+                TabLayout.Tab tab = tabLayout.getTabAt(tabIdx);
+                if (tab != null) {
+                    tab.select();
+                }
+                tabContentStyle.setVisibility(tabIdx == 0 ? View.VISIBLE : View.GONE);
+                tabContentColors.setVisibility(tabIdx == 1 ? View.VISIBLE : View.GONE);
+                tabContentMotion.setVisibility(tabIdx == 2 ? View.VISIBLE : View.GONE);
+                tabContentShare.setVisibility(tabIdx == 3 ? View.VISIBLE : View.GONE);
+            }
+        }
     }
 
     private void initViews() {
@@ -198,16 +222,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupInsets() {
-        View root = findViewById(R.id.rootCoordinator);
+        View root = findViewById(R.id.rootContainer);
         View headerBar = findViewById(R.id.headerBar);
         View bottomBar = findViewById(R.id.bottomBarContainer);
-        View scrollView = findViewById(R.id.contentScrollView);
 
         ViewCompat.setOnApplyWindowInsetsListener(root, (v, insets) -> {
-            Insets bars = insets.getInsets(WindowInsetsCompat.Type.systemBars() | WindowInsetsCompat.Type.displayCutout());
-            headerBar.setPadding(headerBar.getPaddingLeft(), bars.top + dp(8), headerBar.getPaddingRight(), headerBar.getPaddingBottom());
-            bottomBar.setPadding(bottomBar.getPaddingLeft(), bottomBar.getPaddingTop(), bottomBar.getPaddingRight(), bars.bottom + dp(12));
-            scrollView.setPadding(scrollView.getPaddingLeft(), scrollView.getPaddingTop(), scrollView.getPaddingRight(), bars.bottom + dp(85));
+            Insets statusBars = insets.getInsets(WindowInsetsCompat.Type.statusBars() | WindowInsetsCompat.Type.displayCutout());
+            Insets navBars = insets.getInsets(WindowInsetsCompat.Type.navigationBars());
+            headerBar.setPadding(dp(20), statusBars.top + dp(10), dp(20), dp(8));
+            bottomBar.setPadding(dp(20), dp(10), dp(20), navBars.bottom + dp(14));
             return insets;
         });
     }
