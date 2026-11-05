@@ -1,0 +1,54 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.MUILive" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:statusBarColor">@color/bg_dark</item>
+        <item name="android:navigationBarColor">@color/bg_dark</item>
+        <item name="android:windowBackground">@color/bg_dark</item>
+        
+        <!-- Primary branding -->
+        <item name="colorPrimary">@color/accent_primary</item>
+        <item name="colorOnPrimary">@color/on_accent_primary</item>
+        <item name="colorPrimaryContainer">#2E1E57</item>
+        <item name="colorOnPrimaryContainer">#EADDFF</item>
+        
+        <!-- Surface & Background -->
+        <item name="colorSurface">@color/surface_card</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorSurfaceVariant">@color/surface_card_secondary</item>
+        <item name="colorOnSurfaceVariant">@color/text_secondary</item>
+        
+        <!-- Sliders & Switches default styling -->
+        <item name="sliderStyle">@style/Widget.App.Slider</item>
+        <item name="materialCardViewStyle">@style/Widget.App.CardView</item>
+        <item name="chipStyle">@style/Widget.App.Chip</item>
+    </style>
+
+    <style name="Widget.App.Slider" parent="Widget.Material3.Slider">
+        <item name="trackColorActive">@color/accent_primary</item>
+        <item name="trackColorInactive">#26293B</item>
+        <item name="thumbColor">@color/accent_primary</item>
+        <item name="haloColor">@color/accent_glow</item>
+    </style>
+
+    <style name="Widget.App.CardView" parent="Widget.Material3.CardView.Filled">
+        <item name="cardBackgroundColor">@color/surface_card</item>
+        <item name="strokeColor">@color/surface_card_stroke</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.App.Corner24</item>
+    </style>
+
+    <style name="Widget.App.Chip" parent="Widget.Material3.Chip.Filter">
+        <item name="chipBackgroundColor">@color/surface_chip</item>
+        <item name="chipStrokeWidth">0dp</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="ShapeAppearance.App.Corner24" parent="ShapeAppearance.Material3.Corner.Medium">
+        <item name="cornerSize">24dp</item>
+    </style>
+    
+    <style name="ShapeAppearance.App.Corner28" parent="ShapeAppearance.Material3.Corner.Large">
+        <item name="cornerSize">28dp</item>
+    </style>
+
+    <style name="Theme.MUILive.Custom" parent="Theme.MUILive" />
+</resources>

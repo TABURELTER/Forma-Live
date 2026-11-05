@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Forma Live</string>
+    <string name="app_tagline">Живые обои Material You</string>
+    <string name="wallpaper_description">Процедурные анимированные обои с динамической палитрой Material You</string>
+    
+    <!-- Tabs -->
+    <string name="tab_style">Стиль</string>
+    <string name="tab_colors">Цвета</string>
+    <string name="tab_motion">Эффекты</string>
+    <string name="tab_about">Инфо</string>
+
+    <!-- Actions -->
+    <string name="action_apply">Установить обои</string>
+    <string name="action_randomize">Случайный</string>
+    <string name="action_fullscreen">На весь экран</string>
+    
+    <!-- Credits -->
+    <string name="credits_title">Благодарности</string>
+    <string name="credits_author">Оригинальный проект: Rixa (@rixa8)</string>
+    <string name="credits_desc">Сердечная благодарность Rixa за оригинальную концепцию, алгоритмы фигур и вдохновение Material You.</string>
+</resources>

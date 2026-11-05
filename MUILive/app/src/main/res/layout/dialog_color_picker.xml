@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <!-- Color Preview & Hex Display -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="0dp"
+        app:strokeColor="@color/surface_card_stroke"
+        app:strokeWidth="1dp">
+
+        <FrameLayout
+            android:id="@+id/pickerPreviewBanner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/accent_primary">
+
+            <TextView
+                android:id="@+id/pickerHexText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="monospace"
+                android:text="#D0BCFF"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </FrameLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Quick Palette Section -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="Популярные оттенки"
+        android:textColor="@color/text_secondary"
+        android:textSize="13sp" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/pickerSwatchesRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" />
+    </HorizontalScrollView>
+
+    <!-- Sliders -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical">
+
+        <!-- Hue -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Оттенок (Hue)"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp" />
+            <TextView
+                android:id="@+id/pickerHueValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="260°"
+                android:textColor="@color/accent_primary"
+                android:textSize="14sp" />
+        </LinearLayout>
+        <com.google.android.material.slider.Slider
+            android:id="@+id/sliderHue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:valueFrom="0"
+            android:valueTo="360" />
+
+        <!-- Saturation -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Насыщенность"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp" />
+            <TextView
+                android:id="@+id/pickerSatValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="70%"
+                android:textColor="@color/accent_primary"
+                android:textSize="14sp" />
+        </LinearLayout>
+        <com.google.android.material.slider.Slider
+            android:id="@+id/sliderSat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:valueFrom="0"
+            android:valueTo="100" />
+
+        <!-- Value / Brightness -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Яркость"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp" />
+            <TextView
+                android:id="@+id/pickerValValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="90%"
+                android:textColor="@color/accent_primary"
+                android:textSize="14sp" />
+        </LinearLayout>
+        <com.google.android.material.slider.Slider
+            android:id="@+id/sliderVal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:valueFrom="0"
+            android:valueTo="100" />
+    </LinearLayout>
+
+</LinearLayout>
